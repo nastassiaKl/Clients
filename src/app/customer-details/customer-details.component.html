@@ -1,0 +1,265 @@
+<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+<br>
+<h4>
+  <span class="badge badge-light ">{{customer.id}}</span> {{ customer.surname}} {{ customer.name}} {{ customer.middlename}}
+</h4>
+
+<div [hidden]="submitted">
+    <form #detailCustomerForm="ngForm">
+      <div class="form-group">
+        <label for="name">First Name</label>
+        <input type="text" class="form-control" id="name" required pattern="^[a-zA-Z]{0,}$"
+        [(ngModel)]="customer.name" name="name" #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+            First Name is required, only english letters and no space!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="middlename">Middle Name</label>
+        <input type="text" class="form-control" id="middlename" required pattern="^[a-zA-Z]{0,}$"
+        [(ngModel)]="customer.middlename" name="middlename" #middlename="ngModel">
+        <div [hidden]="middlename.valid || middlename.pristine"
+             class="alert alert-danger">
+            Middle Name is required, only english letters and no space!
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="surname">Last Name</label>
+        <input type="text" class="form-control" id="surname" required pattern="^[a-zA-Z]{0,}$"
+        [(ngModel)]="customer.surname" name="surname" #surname="ngModel">
+        <div [hidden]="surname.valid || surname.pristine"
+             class="alert alert-danger">
+            Last Name is required, only english letters and no space!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="passportSeries">passport Series</label>
+        <input type="text" class="form-control" id="passportSeries" required
+        [(ngModel)]="customer.passportSeries" name="passportSeries" #passportSeries="ngModel">
+        <div [hidden]="passportSeries.valid || passportSeries.pristine"
+             class="alert alert-danger">
+             passport Series is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="passportNumber">passport number</label>
+        <input type="text" class="form-control" id="passportNumber" required
+        [(ngModel)]="customer.passportNumber" name="passportNumber" #passportNumber="ngModel">
+        <div [hidden]="passportNumber.valid || passportNumber.pristine"
+             class="alert alert-danger">
+             passport number is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="department">department</label>
+        <input type="text" class="form-control" id="department" required
+        [(ngModel)]="customer.department" name="department" #department="ngModel">
+        <div [hidden]="department.valid || department.pristine"
+             class="alert alert-danger">
+             department is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dateOfDepartment">dateOfDepartment</label>
+        <input type="date" class="form-control" id="department" required
+        [(ngModel)]="customer.dateOfDepartment" name="dateOfDepartment" #dateOfDepartment="ngModel">
+        <div [hidden]="dateOfDepartment.valid || dateOfDepartment.pristine"
+             class="alert alert-danger">
+             dateOfDepartment is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dateOfBirth">dateOfBirth</label>
+        <input type="date" class="form-control" id="department" required
+        [(ngModel)]="customer.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel">
+        <div [hidden]="dateOfBirth.valid || dateOfBirth.pristine"
+             class="alert alert-danger">
+             dateOfBirth is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="passportId">passport Id</label>
+        <input type="text" class="form-control" id="passportId" required
+        [(ngModel)]="customer.passportId" name="passportId" #passportId="ngModel">
+        <div [hidden]="passportId.valid || passportId.pristine"
+             class="alert alert-danger">
+             passportId is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="placeOfBirth">placeOfBirth</label>
+        <input type="text" class="form-control" id="placeOfBirth" required
+        [(ngModel)]="customer.placeOfBirth" name="placeOfBirth" #placeOfBirth="ngModel">
+        <div [hidden]="placeOfBirth.valid || placeOfBirth.pristine"
+             class="alert alert-danger">
+             placeOfBirth is required
+        </div>
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="currentCity">current City</label>
+        <input type="text" class="form-control" id="currentCity" required
+        [(ngModel)]="customer.currentCity" name="currentCity" #currentCity="ngModel">
+        <div [hidden]="currentCity.valid || currentCity.pristine"
+             class="alert alert-danger">
+             currentCity is required
+        </div>
+      </div> -->
+
+      <div class="form-group">
+        <label for="currentCity">current City</label>
+        <select class="form-control" [(ngModel)]="customer.currentCity" id="currentCity" name="currentCity" #currentCity="ngModel">
+          <option>Minsk</option>
+          <option>Brest</option>
+          <option>Mogilev</option>
+          <option>Grodno</option>
+          <option>Gomel</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="currentAddress">current Address</label>
+        <input type="text" class="form-control" id="currentAddress" required
+        [(ngModel)]="customer.currentAddress" name="currentAddress" #currentAddress="ngModel">
+        <div [hidden]="currentAddress.valid || currentAddress.pristine"
+             class="alert alert-danger">
+             currentAddress is required
+        </div>
+      </div>
+
+   
+      <div class="form-group">
+        <label for="telephoneHouse">phone (House)</label>
+        <input type="text" class="form-control" id="telephoneHouse"
+        [(ngModel)]="customer.telephoneHouse" name="telephoneHouse" #telephoneHouse="ngModel"
+        mask="000-00-00">
+        <div [hidden]="telephoneHouse.valid || telephoneHouse.pristine"
+             class="alert alert-danger">
+             telephoneHouse mask 000-00-00
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="telephone">phone</label>
+        <input type="text" class="form-control" id="telephone"
+        [(ngModel)]="customer.telephone" name="telephone" #telephone="ngModel"
+        prefix="+375"
+        mask="(00)000-00-00">
+        <div [hidden]="telephone.valid || telephone.pristine"
+             class="alert alert-danger">
+             telephone mask +375(00)000-00-00
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="email" class="form-control" id="email"
+        [(ngModel)]="customer.email" name="email" #email="ngModel">
+        <div [hidden]="email.valid || email.pristine"
+             class="alert alert-danger">
+             email is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="placeOfWork">placeOfWork</label>
+        <input type="text" class="form-control" id="placeOfWork" 
+        [(ngModel)]="customer.placeOfWork" name="placeOfWork" #placeOfWork="ngModel">
+        <div [hidden]="placeOfWork.valid || placeOfWork.pristine"
+             class="alert alert-danger">
+             place Of Work is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="position">position</label>
+        <input type="text" class="form-control" id="position" 
+        [(ngModel)]="customer.position" name="position" #position="ngModel">
+        <div [hidden]="position.valid || position.pristine"
+             class="alert alert-danger">
+             position is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="familyStatus">family status</label>
+        <select class="form-control" [(ngModel)]="customer.familyStatus" name="familyStatus" #familyStatus="ngModel">
+          <option>married</option>
+          <option>single</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="citizenship">citizenship</label>
+        <select class="form-control" [(ngModel)]="customer.citizenship" name="citizenship" #citizenship="ngModel">
+          <option>Minsk</option>
+          <option>Brest</option>
+          <option>Mogilev</option>
+          <option>Grodno</option>
+          <option>Gomel</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="disability">disability</label>
+        <select class="form-control" [(ngModel)]="customer.citizenship" name="citizenship" #citizenship="ngModel">
+          <option>without group</option>
+          <option>1 group</option>
+          <option>2 group</option>
+          <option>3 group</option>
+        </select>
+      </div>
+      
+      
+      
+      <div class="form-group">
+        <label for="income">Income</label>
+        <input type="number" class="form-control" id="income"
+        [(ngModel)]="customer.income" name="income" #income="ngModel">
+        <div [hidden]="income.valid || income.pristine"
+             class="alert alert-danger">
+            income is required
+        </div>
+      </div>
+
+      <hr>
+      <div class="form-group">
+        <div class="form-check">
+          <input type="checkbox" class="form-control form-check-input" id="pensioner"
+          [(ngModel)]="customer.pensioner" name="pensioner" #pensioner="ngModel">
+          <label class="form-check-label" for="pensioner">pensioner</label>
+        </div>
+      </div> 
+      
+      <div class="form-group">
+        <div class="form-check">
+          <input type="checkbox" class="form-control form-check-input" id="military"
+          [(ngModel)]="customer.military" name="military" #military="ngModel">
+          <label class="form-check-label" for="military">liable for military</label>
+        </div>
+      </div>
+ 
+
+      <div class="btn-group btn-group-sm btn-new">
+        <button type="button" class="btn btn-dark" (click)="update()" [disabled]="!detailCustomerForm.form.valid">Update</button>
+        <button type="button" class="btn btn-dark" (click)="delete()">Delete</button>
+	    </div>
+    </form>
+</div>
+ 
+<div [hidden]="!submitted">
+    <p>{{message}}</p>
+    <div class="btn-group btn-group-sm">
+      <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    </div>
+</div>

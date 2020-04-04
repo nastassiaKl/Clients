@@ -1,0 +1,9 @@
+<div class="d-flex flex-column">
+  <h5>All Customers</h5>
+  <div *ngFor="let cust of customers ">
+    <a [routerLink]="['/customers', cust.id]">
+      <span class="badge badge-dark">{{cust.id}}</span>
+      {{ cust.surname}} {{ cust.name}} {{ cust.middlename}}
+    </a>
+  </div>
+</div>
